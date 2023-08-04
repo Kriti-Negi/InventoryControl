@@ -1,6 +1,12 @@
+import Navbar from '../components/Navbar'
+
 function Orders(){
     return (
-        <div>Orders</div>
+        <div>
+            <main>
+                <Navbar/>
+            </main>
+        </div>
     )
 }
 
