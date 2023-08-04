@@ -3,8 +3,9 @@ import Navbar from '../components/Navbar'
 function MoneyControl(){
     return (
         <div>
+            <Navbar/>
             <main>
-                <Navbar/>
+                
             </main>
         </div>
     )

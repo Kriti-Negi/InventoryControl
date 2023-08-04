@@ -3,8 +3,9 @@ import Navbar from '../components/Navbar'
 function Inventory(){
     return (
         <div>
+            <Navbar/>
             <main>
-                <Navbar/>
+                
             </main>
         </div>
     )
