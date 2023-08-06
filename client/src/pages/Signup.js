@@ -7,28 +7,27 @@ import Heading from '../components/Heading';
 import SubHeading from '../components/SubHeading';
 import BasicButton from '../components/BasicButton';
 import SignUpLogInTextInput from '../components/SignUpLogInTextInput';
+import { auth } from '../components/Firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [userCreated, setUserCreated] = useState(false);
 
-  function updateValues(e) {
-    const { placeholder, value } = e.target;
-    if (placeholder === 'username') {
-      setUsername(value);
-    } else if (placeholder === 'password') {
-      setPassword(value);
-    } else if (placeholder === 'email') {
-      setEmail(value);
-    } else if (placeholder === 'confirm password') {
-      setConfirmPassword(value);
-    }
-  }
-
-  function SignUserIn() {
-    console.log('*backend magic*');
+  async function handleSignUp() {
+    // if (password !== confirmPassword) {
+    //   alert('Passwords do not match');
+    //   return;
+    // }
+    // try {
+    //   await createUserWithEmailAndPassword(auth, email, password);
+    //   setUserCreated(true);
+    // } catch (error) {
+    //   console.log(error);
+    //   alert('Go to Login');
+    // }
   }
 
   return (
@@ -45,52 +44,58 @@ const Signup = () => {
           <SubHeading text="Take charge of your business." textColor="086972" />
         </motion.div>
 
-        <form className="mt-6">
-          <div className="space-y-4">
-            <SignUpLogInTextInput
-              type="text"
-              placeholder="email"
-              onChange={(e) => updateValues(e)}
-              value={email}
-            />
-            <SignUpLogInTextInput
-              type="text"
-              placeholder="username"
-              onChange={(e) => updateValues(e)}
-              value={username}
-            />
-            <SignUpLogInTextInput
-              type="password"
-              placeholder="password"
-              onChange={(e) => updateValues(e)}
-              value={password}
-            />
-            <SignUpLogInTextInput
-              type="password"
-              placeholder="confirm password"
-              onChange={(e) => updateValues(e)}
-              value={confirmPassword}
-            />          </div>
-          <p className="mt-2 text-gray-500">
-            Already have an account?{' '}
+        {userCreated ? (
+          <div>
+            <p>User created successfully.</p>
             <Link to="/login" className="text-blue-500">
-              Log In
+              Go to Login
             </Link>
-          </p>
+          </div>
+        ) : (
+          <form className="mt-6">
+            <div className="space-y-4">
+              <SignUpLogInTextInput
+                type="text"
+                placeholder="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+              <SignUpLogInTextInput
+                type="password"
+                placeholder="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
+              <SignUpLogInTextInput
+                type="password"
+                placeholder="confirm password"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                value={confirmPassword}
+              />
+            </div>
+            <p className="mt-2 text-gray-500">
+              Already have an account?{' '}
+              <Link to="/login" className="text-blue-500">
+                Log In
+              </Link>
+            </p>
 
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="mt-4"
-          >
-            <BasicButton
-              text="Sign Up"
-              onClick={SignUserIn}
-              bgColor="17B978"
-              textColor="white"
-            />
-          </motion.div>
-        </form>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-4"
+            >
+              <Link to="/login">
+                <BasicButton
+                  text="Sign Up"
+                  bgColor="17B978"
+                  onClick={handleSignUp()}
+                  textColor="white"
+                />
+              </Link>
+            </motion.div>
+          </form>
+        )}
       </div>
     </main>
   );
