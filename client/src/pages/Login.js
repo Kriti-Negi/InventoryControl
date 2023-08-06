@@ -71,12 +71,13 @@ const Login = () => {
             className="mt-4"
           >
             <Link to='/home'>
-            <BasicButton
+            {/* <BasicButton
               text="Log In"
               onClick={logUserIn}
               bgColor="17B978"
               textColor="white"
-            />
+            /> */}
+            Log In
             </Link>
           </motion.div>
         </form>

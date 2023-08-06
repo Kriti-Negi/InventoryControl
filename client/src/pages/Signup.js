@@ -86,12 +86,13 @@ const Signup = () => {
               className="mt-4"
             >
               <Link to="/login">
-                <BasicButton
+                {/* <BasicButton
                   text="Sign Up"
                   bgColor="17B978"
                   onClick={handleSignUp()}
                   textColor="white"
-                />
+                /> */}
+              Sign up
               </Link>
             </motion.div>
           </form>

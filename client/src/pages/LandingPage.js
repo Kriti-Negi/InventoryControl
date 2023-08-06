@@ -9,22 +9,15 @@ import BasicButton from '../components/BasicButton';
 
 const LandingPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-E3EEFF">
-      <nav className="w-full py-4 bg-white">
-        <div className="max-w-5xl mx-auto flex items-center justify-between px-4">
-          <Logo />
-          <h3 className="text-xl font-semibold">Inventory Controls</h3>
-        </div>
-      </nav>
-
-      <main className="flex flex-col items-center justify-center flex-grow">
+    <div className='flex items-center justify-center h-screen '>
+      <main className="flex flex-col items-center justify-center border border-black p-10 rounded-lg shadow-md mb-6">
         <div className="text-center max-w-md p-8 bg-white rounded-lg shadow-md">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Logo />
+            <Logo className="mx-auto" />
 
             <Heading text="Inventory Control" textColor="071A52" />
             <SubHeading
@@ -38,7 +31,8 @@ const LandingPage = () => {
                 whileTap={{ scale: 0.95 }}
                 className="mt-4"
               >
-                <BasicButton text="Get Started" bgColor="17B978" textColor="white" />
+              Get Started
+                {/* <BasicButton text="Get Started" bgColor="17B978" textColor="white" /> */}
               </motion.div>
             </Link>
           </motion.div>
