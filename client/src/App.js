@@ -1,35 +1,29 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home';
-import LandingPage from './pages/LandingPage';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Inventory from './pages/Inventory';
-import Orders from './pages/Orders';
+
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+import LandingPage from './pages/LandingPage'
+import Inventory from './pages/Inventory'
+import Home from './pages/Home'
+import Orders from './pages/Orders'
+import MoneyControl from './pages/MoneyControl';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-     <BrowserRouter>
-     <div>
-      <Navbar/>
-     </div>
+    <BrowserRouter>
       <Routes>
-        <Route path='/' element={<LandingPage/>} exact/>
-        <Route path='/home' element={<Home/>} exact/>
-        <Route path='/signup' element={<Signup/>} exact/>
-        <Route path='/login' element={<Login/>} exact/>
-        <Route path='/inventory' element={<Inventory/>} exact/>
-        <Route path='/money_control' element={<Inventory/>} exact/>
-        <Route path='/orders' element={<Orders/>} exact/>
+        <Route path="/" element = {<LandingPage/>}/>
+        <Route path="/login" element = {<Login/>}/>
+        <Route path="/signup" element = {<Signup/>}/>
+        <Route path="/home" element = {<Home/>}/>
+        <Route path="/inventory" element = {<Inventory/>}/>
+        <Route path = "/orders" element = {<Orders/>}/>
+        <Route path = "/moneycontrols" element = {<MoneyControl/>}/>
       </Routes>
-      <div>
-        <Footer/>
-      </div>
-     </BrowserRouter>
-    </div>
+    </BrowserRouter>
   );
 }
 

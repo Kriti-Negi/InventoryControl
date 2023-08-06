@@ -1,9 +1,14 @@
-import React from 'react'
+import Navbar from '../components/Navbar'
 
-const Inventory = () => {
-  return (
-    <div>Inventory</div>
-  )
+function Inventory(){
+    return (
+        <div>
+            <Navbar/>
+            <main>
+                
+            </main>
+        </div>
+    )
 }
 
-export default Inventory
+export default Inventory;

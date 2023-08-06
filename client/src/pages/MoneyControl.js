@@ -1,6 +1,6 @@
 import Navbar from '../components/Navbar'
 
-function Orders(){
+function MoneyControl(){
     return (
         <div>
             <Navbar/>
@@ -11,4 +11,4 @@ function Orders(){
     )
 }
 
-export default Orders;
+export default MoneyControl;
